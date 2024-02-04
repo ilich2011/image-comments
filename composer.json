@@ -11,5 +11,12 @@
             "email": "ilya.shwetsow@yandex.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "slim/slim": "4.*",
+        "nyholm/psr7": "^1.8",
+        "nyholm/psr7-server": "^1.1",
+        "vlucas/phpdotenv": "^5.6",
+        "php-di/php-di": "^7.0",
+        "monolog/monolog": "^3.5"
+    }
 }
