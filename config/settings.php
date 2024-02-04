@@ -1,1 +1,5 @@
 <?php
+
+$settings = [];
+
+return $settings;
