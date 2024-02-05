@@ -18,6 +18,13 @@ return [
         return AppFactory::createFromContainer($container);
     },
 
+    PDO::class=> function (ContainerInterface $container) {
+
+        $PDOSettings = $container->get('settings')['PDO'];
+
+        return new PDO($PDOSettings['dsn'],$PDOSettings['user'],$PDOSettings['password']);
+    },
+
     LoggerInterface::class => function (ContainerInterface $container) {
         $loggerSettings = $container->get('settings')['logger'];
 
