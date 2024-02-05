@@ -1,5 +1,6 @@
 <?php
 
+use App\Action\MainAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
@@ -9,4 +10,6 @@ return function (App $app) {
         $response->getBody()->write("Hello world!");
         return $response;
     });
+
+    $app->get('/get-all',MainAction::class);
 };
