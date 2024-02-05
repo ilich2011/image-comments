@@ -1,5 +1,6 @@
 <?php
 
+use App\Action\InsertCommentAction;
 use App\Action\MainAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -12,4 +13,6 @@ return function (App $app) {
     });
 
     $app->get('/get-all',MainAction::class);
+
+    $app->post('/save-comment', InsertCommentAction::class);
 };
