@@ -1,18 +1,21 @@
 <?php
 
+use App\Action\DeleteCommentAction;
 use App\Action\InsertCommentAction;
 use App\Action\MainAction;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
+use Slim\Routing\RouteCollectorProxy;
 
 return function (App $app) {
-    $app->get('/', function (Request $request, Response $response, $args) {
-        $response->getBody()->write("Hello world!");
-        return $response;
+
+    $app->group('/api', function (RouteCollectorProxy $group) {
+
+        $group->get('/get-all',MainAction::class);
+
+        $group->post('/save-comment', InsertCommentAction::class);
+
+        $group->delete('/delete-comment', DeleteCommentAction::class);
+
     });
 
-    $app->get('/get-all',MainAction::class);
-
-    $app->post('/save-comment', InsertCommentAction::class);
 };
