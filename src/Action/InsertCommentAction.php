@@ -27,8 +27,8 @@ class InsertCommentAction
             return $response->withStatus(500);
         }
 
-        $status = $this->repository->save($body['userName'], $body['content']);
-        $response->getBody()->write(json_encode($status));
+        $comment = $this->repository->save($body['userName'], $body['content']);
+        $response->getBody()->write(json_encode($comment));
 
         return $response->withHeader('Content-Type', 'application/json')->withStatus(201);
     }
